@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://phoenixonpar.com/*"
+  to = "https://www.phoenixonpar.com/:splat"
+  status = 301
+  force = true

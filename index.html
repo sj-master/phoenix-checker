@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phoenix Checker – Instagram Analytics by Phoenix on Par</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Enhanced Phoenix Theme with Modern Design */
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+
+    :root {
+      --phoenix-primary: #B85450;
+      --phoenix-secondary: #ff6b47;
+      --phoenix-accent: #ff8c69;
+      --phoenix-dark: #1a0f0e;
+      --phoenix-light: #fff5f4;
+      --shadow-glow: 0 10px 40px rgba(184, 84, 80, 0.3);
+      --shadow-hover: 0 15px 50px rgba(184, 84, 80, 0.5);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      background: linear-gradient(-45deg, #0f0f0f, #1a0f0e, #2a1a19, var(--phoenix-primary), var(--phoenix-secondary));
+      background-size: 400% 400%;
+      animation: phoenixGlow 15s ease infinite;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    @keyframes phoenixGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Floating particles effect */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(2px 2px at 20px 30px, rgba(255, 107, 71, 0.3), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(184, 84, 80, 0.4), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 140, 105, 0.3), transparent);
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      animation: float 20s linear infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px) translateX(0px); }
+      33% { transform: translateY(-20px) translateX(10px); }
+      66% { transform: translateY(-10px) translateX(-5px); }
+      100% { transform: translateY(0px) translateX(0px); }
+    }
+
+    /* Header with logo */
+    .header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--phoenix-primary);
+      box-shadow: var(--shadow-glow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px var(--phoenix-primary);
+      animation: logoGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes logoGlow {
+      from { box-shadow: 0 0 20px var(--phoenix-primary); }
+      to { box-shadow: 0 0 30px var(--phoenix-secondary), 0 0 40px var(--phoenix-primary); }
+    }
+
+    .header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, var(--phoenix-primary), var(--phoenix-secondary), var(--phoenix-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(184, 84, 80, 0.5);
+      margin: 0;
+    }
+
+    .header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      color: var(--phoenix-accent);
+      font-weight: 300;
+    }
+
+    /* Main content */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .section {
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(15px);
+      border-radius: 25px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-glow);
+      border: 1px solid rgba(184, 84, 80, 0.3);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: slideIn 0.8s ease forwards;
+    }
+
+    .section:nth-child(2) { animation-delay: 0.2s; }
+    .section:nth-child(3) { animation-delay: 0.4s; }
+    .section:nth-child(4) { animation-delay: 0.6s; }
+
+    @keyframes slideIn {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Hero logo styling */
+    .hero-logo-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .hero-logo {
+      width: 150px;
+      height: 150px;
+      border-radius: 20px;
+      box-shadow: 
+        0 0 30px rgba(184, 84, 80, 0.6),
+        0 0 60px rgba(255, 107, 71, 0.4),
+        0 0 90px rgba(184, 84, 80, 0.2);
+      animation: heroLogoFloat 6s ease-in-out infinite;
+      transition: all 0.3s ease;
+    }
+
+    .hero-logo:hover {
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 
+        0 0 40px rgba(184, 84, 80, 0.8),
+        0 0 80px rgba(255, 107, 71, 0.6),
+        0 0 120px rgba(184, 84, 80, 0.4);
+    }
+
+    @keyframes heroLogoFloat {
+      0%, 100% { 
+        transform: translateY(0) rotate(0deg); 
+      }
+      50% { 
+        transform: translateY(-10px) rotate(2deg); 
+      }
+    }
+
+    .hero {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(184, 84, 80, 0.2), rgba(255, 107, 71, 0.1));
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--phoenix-accent);
+      font-weight: 600;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 300;
+    }
+
+    /* Instructions with better styling */
+    .instructions h2 {
+      color: var(--phoenix-secondary);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .instructions ol {
+      counter-reset: step-counter;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .instructions li {
+      counter-increment: step-counter;
+      margin: 1rem 0;
+      padding: 1rem;
+      background: rgba(184, 84, 80, 0.1);
+      border-radius: 15px;
+      border-left: 4px solid var(--phoenix-primary);
+      position: relative;
+      padding-left: 3rem;
+    }
+
+    .instructions li::before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--phoenix-primary);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .instructions a {
+      color: var(--phoenix-accent);
+      font-weight: 600;
+    }
+
+    /* Enhanced buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      margin: 0.5rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: linear-gradient(45deg, var(--phoenix-primary), var(--phoenix-secondary));
+      color: #fff;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .btn-secondary {
+      background: rgba(184, 84, 80, 0.2);
+      border: 2px solid var(--phoenix-primary);
+      color: var(--phoenix-accent);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(184, 84, 80, 0.4);
+      color: #fff;
+    }
+
+    /* Upload area */
+    .upload-area {
+      text-align: center;
+      padding: 2rem;
+      border: 2px dashed var(--phoenix-primary);
+      border-radius: 20px;
+      background: rgba(184, 84, 80, 0.1);
+      margin: 1rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .upload-area:hover {
+      background: rgba(184, 84, 80, 0.2);
+      border-color: var(--phoenix-secondary);
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    .file-label {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      cursor: pointer;
+      margin: 0.5rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .file-label:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .file-status {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--phoenix-accent);
+    }
+
+    /* Results styling */
+    .results {
+      display: none !important;
+    }
+
+    .results.show {
+      display: block !important;
+      animation: fadeInUp 0.8s ease;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
+    .results-persistent {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .results-grid {
+      display: grid;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .result-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 15px;
+      border-left: 4px solid var(--phoenix-primary);
+      transition: all 0.3s ease;
+    }
+
+    .result-item:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateX(5px);
+    }
+
+    .result-item a {
+      color: var(--phoenix-accent);
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .result-item a:hover {
+      color: var(--phoenix-secondary);
+    }
+
+    /* Stats cards */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .stat-card {
+      background: rgba(184, 84, 80, 0.2);
+      padding: 1.5rem;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--phoenix-accent);
+    }
+
+    /* Search and action buttons */
+    .search-container {
+      margin: 1.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.8rem 1rem;
+      border-radius: 25px;
+      border: 2px solid var(--phoenix-primary);
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .search-box:focus {
+      outline: none;
+      border-color: var(--phoenix-secondary);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 15px rgba(184, 84, 80, 0.3);
+    }
+
+    .search-box::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-small {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    /* Footer sections */
+    .footer-section {
+      background: linear-gradient(135deg, rgba(184, 84, 80, 0.3), rgba(255, 107, 71, 0.2));
+      text-align: center;
+    }
+
+    /* Promo video styling */
+    .promo-video-container {
+      display: flex;
+      justify-content: center;
+      margin: 1.5rem 0 0 0;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow-glow);
+      background: rgba(0, 0, 0, 0.3);
+      position: relative;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .promo-video {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      display: block;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .promo-video:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Video controls styling */
+    .promo-video::-webkit-media-controls-panel {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(184, 84, 80, 0.8));
+    }
+
+    .promo-video::-webkit-media-controls-play-button {
+      background-color: var(--phoenix-primary);
+      border-radius: 50%;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(0,0,0,0.9);
+      color: rgba(255, 255, 255, 0.7);
+      border-top: 1px solid var(--phoenix-primary);
+    }
+
+    /* Loading spinner */
+    .loading {
+      display: none;
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(184, 84, 80, 0.3);
+      border-top: 4px solid var(--phoenix-primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .header h1 { font-size: 2rem; }
+      .hero h2 { font-size: 1.8rem; }
+      .section { padding: 1.5rem; }
+      .logo { width: 50px; height: 50px; }
+      .hero-logo { width: 120px; height: 120px; }
+      .logo-container { flex-direction: column; gap: 0.5rem; }
+      .promo-video { max-width: 280px; }
+      .promo-video-container { max-width: 300px; margin: 1rem auto 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with Logo -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="logo2.png" alt="Phoenix on Par Logo" class="logo">
+      <div>
+        <h1>Phoenix Checker</h1>
+        <p>Instagram Analytics by <strong>Phoenix on Par</strong></p>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="section hero">
+      <div class="hero-logo-container">
+        <img src="logo.png" alt="Phoenix Checker Logo" class="hero-logo">
+      </div>
+      <h2>🔥 Unlock Your Instagram Insights</h2>
+      <p>
+        Discover who you're following that isn't following you back. Get detailed analytics 
+        and insights about your Instagram connections with our advanced checker tool.
+      </p>
+    </section>
+
+    <!-- Instructions -->
+    <section class="section instructions">
+      <h2>📋 How It Works</h2>
+      <ol>
+        <li>Visit <a href="https://www.instagram.com/download/request/" target="_blank">Instagram's data download page</a> and request your data</li>
+        <li>Select <strong>JSON format</strong> and choose only <strong>Followers</strong> and <strong>Following</strong> data</li>
+        <li>Download the ZIP file when ready and extract it to your computer</li>
+        <li>Find the followers and following JSON files in the extracted folder</li>
+        <li><strong>Important:</strong> Rename the files to exactly <code>followers.json</code> and <code>following.json</code> if Instagram has given them different names (like <code>followers_1.json</code> or <code>following_data.json</code>). The checker requires these exact file names to work properly!</li>
+        <li>Upload both renamed files below to get your instant analysis</li>
+      </ol>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="section">
+      <h2>📁 Upload Your Data</h2>
+      <p style="margin-bottom: 1.5rem; color: rgba(255,255,255,0.8);">
+        Your data is processed locally in your browser - nothing is sent to our servers!
+      </p>
+      
+      <div class="upload-area" id="uploadArea">
+        <div>
+          <label for="followersFile" class="file-label">
+            📊 Choose followers.json
+          </label>
+          <input type="file" id="followersFile" class="file-input" accept=".json">
+          <div class="file-status" id="followersStatus">No file selected</div>
+        </div>
+        
+        <div>
+          <label for="followingFile" class="file-label">
+            👥 Choose following.json
+          </label>
+          <input type="file" id="followingFile" class="file-input" accept=".json">
+          <div class="file-status" id="followingStatus">No file selected</div>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button id="processBtn" class="btn btn-primary" disabled>
+          🚀 Analyze My Data
+        </button>
+      </div>
+
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Processing your data...</p>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="section results" id="results">
+      <h2>📊 Your Instagram Analytics</h2>
+      
+      <div class="stats" id="stats">
+        <!-- Stats will be populated here -->
+      </div>
+
+      <div id="notFollowingSection" style="display: none;">
+        <h3 style="color: var(--phoenix-secondary); margin: 2rem 0 1rem 0;">
+          🚫 Not Following You Back (<span id="notFollowingCount">0</span>)
+        </h3>
+        
+        <div class="search-container">
+          <input 
+            type="text" 
+            id="searchBox" 
+            class="search-box" 
+            placeholder="🔍 Search usernames..."
+            autocomplete="off"
+          >
+          <div class="action-buttons">
+            <button id="downloadCsvBtn" class="btn btn-secondary btn-small">
+              📥 CSV
+            </button>
+            <button id="copyListBtn" class="btn btn-secondary btn-small">
+              📋 Copy
+            </button>
+          </div>
+        </div>
+        
+        <div class="results-count" id="resultsCount"></div>
+        
+        <div class="results-grid" id="notFollowingList">
+          <!-- Results will be populated here -->
+        </div>
+      </div>
+
+      <div id="successMessage" style="display: none; text-align: center; padding: 2rem;">
+        <h3 style="color: var(--phoenix-accent);">🎉 Congratulations!</h3>
+        <p>Everyone you follow is following you back!</p>
+      </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="section footer-section">
+      <h2>☕ Support Phoenix on Par</h2>
+      <p style="margin-bottom: 1rem;">Enjoying the tool? Consider supporting our work!</p>
+      <a href="https://buymeacoffee.com/sj.master" target="_blank" class="btn btn-secondary">
+        ☕ Buy Me a Coffee
+      </a>
+    </section>
+
+    <!-- Promo Section -->
+    <section class="section footer-section">
+      <h2>🏌️ Save on Vice Golf!</h2>
+      
+      <p style="margin-bottom: 2rem;">
+        Use code <strong>PHOENIX</strong> at 
+        <a href="https://vicegolf.com/phoenix" target="_blank" style="color: var(--phoenix-accent);">
+          vicegolf.com/phoenix
+        </a> 
+        to save on premium golf balls.
+      </p>
+      
+      <div class="promo-video-container">
+        <video 
+          controls 
+          poster="logo.png"
+          preload="metadata"
+          class="promo-video"
+        >
+          <source src="promo.mp4" type="video/mp4">
+          <source src="promo.webm" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p>Made with ❤️ by <strong>Phoenix on Par</strong> | © 2025</p>
+  </footer>
+
+  <script>
+    // Enhanced Instagram Checker Script
+    class InstagramChecker {
+      constructor() {
+        this.followersData = null;
+        this.followingData = null;
+        this.allNotFollowingBack = [];
+        this.initializeEventListeners();
+      }
+
+      initializeEventListeners() {
+        const followersFile = document.getElementById('followersFile');
+        const followingFile = document.getElementById('followingFile');
+        const processBtn = document.getElementById('processBtn');
+
+        followersFile.addEventListener('change', (e) => this.handleFileSelect(e, 'followers'));
+        followingFile.addEventListener('change', (e) => this.handleFileSelect(e, 'following'));
+        processBtn.addEventListener('click', () => this.processData());
+      }
+
+      async handleFileSelect(event, type) {
+        const file = event.target.files[0];
+        const statusElement = document.getElementById(`${type}Status`);
+        
+        if (!file) {
+          statusElement.textContent = 'No file selected';
+          statusElement.style.color = 'rgba(255,255,255,0.6)';
+          this[`${type}Data`] = null;
+        } else {
+          try {
+            const text = await file.text();
+            const data = JSON.parse(text);
+            this[`${type}Data`] = data;
+            statusElement.textContent = `✅ ${file.name} loaded successfully`;
+            statusElement.style.color = 'var(--phoenix-accent)';
+          } catch (error) {
+            statusElement.textContent = `❌ Invalid JSON file`;
+            statusElement.style.color = '#ff6b6b';
+            this[`${type}Data`] = null;
+          }
+        }
+
+        this.updateProcessButton();
+      }
+
+      updateProcessButton() {
+        const processBtn = document.getElementById('processBtn');
+        const canProcess = this.followersData && this.followingData;
+        
+        processBtn.disabled = !canProcess;
+        processBtn.style.opacity = canProcess ? '1' : '0.5';
+        processBtn.style.cursor = canProcess ? 'pointer' : 'not-allowed';
+      }
+
+      extractUsernames(jsonData, keyName = null) {
+        let dataArray = [];
+
+        // Handle different JSON structures
+        if (keyName && jsonData[keyName]) {
+          dataArray = jsonData[keyName];
+        } else if (Array.isArray(jsonData)) {
+          dataArray = jsonData;
+        } else if (jsonData && typeof jsonData === 'object') {
+          // Handle case where data might be nested differently
+          const possibleKeys = Object.keys(jsonData);
+          console.log('Available keys in JSON:', possibleKeys);
+          
+          // Try to find the array in the object
+          for (let key of possibleKeys) {
+            if (Array.isArray(jsonData[key])) {
+              dataArray = jsonData[key];
+              break;
+            }
+          }
+        }
+
+        if (!Array.isArray(dataArray)) {
+          console.error("Could not find array data in JSON structure:", jsonData);
+          return new Set();
+        }
+
+        const usernames = new Set();
+        dataArray.forEach(entry => {
+          try {
+            // Handle different data structures
+            if (entry.string_list_data && entry.string_list_data.length > 0) {
+              entry.string_list_data.forEach(obj => {
+                if (obj.value) usernames.add(obj.value);
+              });
+            } else if (entry.href && entry.href.includes('instagram.com/')) {
+              // Alternative structure - extract username from href
+              const username = entry.href.split('instagram.com/')[1]?.split('/')[0];
+              if (username) usernames.add(username);
+            } else if (entry.title) {
+              // Another possible structure
+              usernames.add(entry.title);
+            }
+          } catch (error) {
+            console.warn('Error processing entry:', entry, error);
+          }
+        });
+
+        console.log(`Extracted ${usernames.size} usernames`);
+        return usernames;
+      }
+
+      async processData() {
+        const loading = document.getElementById('loading');
+        const results = document.getElementById('results');
+        
+        loading.style.display = 'block';
+        
+        try {
+          // Add delay for better UX
+          await new Promise(resolve => setTimeout(resolve, 1000));
+
+          console.log('Processing followers data...');
+          const followers = this.extractUsernames(this.followersData);
+          console.log('Followers found:', followers.size);
+
+          console.log('Processing following data...');
+          const following = this.extractUsernames(this.followingData, "relationships_following");
+          console.log('Following found:', following.size);
+
+          // If following is empty, try without the key
+          let followingSet = following;
+          if (following.size === 0) {
+            console.log('Trying to extract following without key...');
+            followingSet = this.extractUsernames(this.followingData);
+            console.log('Following found (retry):', followingSet.size);
+          }
+
+          const notFollowingBack = [...followingSet].filter(u => !followers.has(u));
+          const mutualFollows = [...followingSet].filter(u => followers.has(u));
+
+          console.log('Analysis complete:', {
+            followers: followers.size,
+            following: followingSet.size,
+            notFollowingBack: notFollowingBack.length,
+            mutualFollows: mutualFollows.length
+          });
+
+          this.displayResults({
+            followersCount: followers.size,
+            followingCount: followingSet.size,
+            notFollowingBack,
+            mutualFollows: mutualFollows.length
+          });
+
+          loading.style.display = 'none';
+          results.classList.add('show');
+          results.scrollIntoView({ behavior: 'smooth' });
+
+        } catch (error) {
+          loading.style.display = 'none';
+          console.error('Processing error:', error);
+          alert('Error processing files. Please check the console for details and ensure your files are valid Instagram JSON exports.');
+        }
+      }
+
+      displayResults(data) {
+        const statsContainer = document.getElementById('stats');
+        const notFollowingSection = document.getElementById('notFollowingSection');
+        const successMessage = document.getElementById('successMessage');
+        const notFollowingList = document.getElementById('notFollowingList');
+        const notFollowingCount = document.getElementById('notFollowingCount');
+        const results = document.getElementById('results');
+
+        console.log('Displaying results:', data);
+
+        // Store data for filtering and actions
+        this.allNotFollowingBack = data.notFollowingBack;
+
+        // Force results to be visible and persistent
+        results.classList.remove('results');
+        results.classList.add('results-persistent');
+        results.style.display = 'block !important';
+        results.style.visibility = 'visible !important';
+        results.style.opacity = '1 !important';
+
+        // Display stats
+        statsContainer.innerHTML = `
+          <div class="stat-card">
+            <div class="stat-number">${data.followersCount}</div>
+            <div class="stat-label">Followers</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">${data.followingCount}</div>
+            <div class="stat-label">Following</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">${data.mutualFollows}</div>
+            <div class="stat-label">Mutual Follows</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">${data.notFollowingBack.length}</div>
+            <div class="stat-label">Not Following Back</div>
+          </div>
+        `;
+
+        if (data.notFollowingBack.length === 0) {
+          notFollowingSection.style.display = 'none';
+          successMessage.style.display = 'block';
+        } else {
+          successMessage.style.display = 'none';
+          notFollowingSection.style.display = 'block';
+          notFollowingCount.textContent = data.notFollowingBack.length;
+
+          this.renderUserList(data.notFollowingBack);
+          this.setupSearch();
+          this.setupActions();
+        }
+
+        // Ensure results stay visible with multiple methods
+        setTimeout(() => {
+          results.classList.add('show', 'results-persistent');
+          results.style.display = 'block';
+          results.style.visibility = 'visible';
+          results.style.opacity = '1';
+        }, 100);
+
+        // Additional safety net
+        setInterval(() => {
+          if (results.style.display === 'none') {
+            results.style.display = 'block';
+            results.style.visibility = 'visible';
+            results.style.opacity = '1';
+          }
+        }, 500);
+      }
+
+      renderUserList(usernames) {
+        const notFollowingList = document.getElementById('notFollowingList');
+        const resultsCount = document.getElementById('resultsCount');
+        
+        notFollowingList.innerHTML = usernames.map((username, index) => `
+          <div class="result-item" data-username="${username.toLowerCase()}" data-index="${index}">
+            <a href="https://instagram.com/${username}" target="_blank">
+              <span>@${username}</span>
+              <span>↗</span>
+            </a>
+          </div>
+        `).join('');
+
+        resultsCount.textContent = `Showing ${usernames.length} of ${this.allNotFollowingBack.length} users`;
+      }
+
+      setupSearch() {
+        const searchBox = document.getElementById('searchBox');
+        const notFollowingList = document.getElementById('notFollowingList');
+        const resultsCount = document.getElementById('resultsCount');
+
+        searchBox.addEventListener('input', (e) => {
+          const searchTerm = e.target.value.toLowerCase().trim();
+          const allItems = notFollowingList.querySelectorAll('.result-item');
+          let visibleCount = 0;
+
+          allItems.forEach(item => {
+            const username = item.dataset.username;
+            if (!searchTerm || username.includes(searchTerm)) {
+              item.classList.remove('hidden');
+              visibleCount++;
+            } else {
+              item.classList.add('hidden');
+            }
+          });
+
+          resultsCount.textContent = searchTerm 
+            ? `Showing ${visibleCount} of ${this.allNotFollowingBack.length} users (filtered)`
+            : `Showing ${this.allNotFollowingBack.length} of ${this.allNotFollowingBack.length} users`;
+        });
+      }
+
+      setupActions() {
+        const downloadCsvBtn = document.getElementById('downloadCsvBtn');
+        const copyListBtn = document.getElementById('copyListBtn');
+
+        downloadCsvBtn.addEventListener('click', () => this.downloadCsv());
+        copyListBtn.addEventListener('click', () => this.copyToClipboard());
+      }
+
+      downloadCsv() {
+        const csvContent = "Username\n" + this.allNotFollowingBack.join('\n');
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'instagram_not_following_back.csv';
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+
+        // Show feedback
+        const btn = document.getElementById('downloadCsvBtn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '✅ Downloaded!';
+        setTimeout(() => btn.innerHTML = originalText, 2000);
+      }
+
+      async copyToClipboard() {
+        const text = this.allNotFollowingBack.join('\n');
+        
+        try {
+          await navigator.clipboard.writeText(text);
+          const btn = document.getElementById('copyListBtn');
+          const originalText = btn.innerHTML;
+          btn.innerHTML = '✅ Copied!';
+          setTimeout(() => btn.innerHTML = originalText, 2000);
+        } catch (err) {
+          // Fallback for older browsers
+          const textArea = document.createElement('textarea');
+          textArea.value = text;
+          textArea.style.position = 'fixed';
+          textArea.style.left = '-999999px';
+          document.body.appendChild(textArea);
+          textArea.select();
+          textArea.setSelectionRange(0, 99999);
+          
+          try {
+            document.execCommand('copy');
+            const btn = document.getElementById('copyListBtn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '✅ Copied!';
+            setTimeout(() => btn.innerHTML = originalText, 2000);
+          } catch (err) {
+            alert('Copy failed. Please select and copy the text manually.');
+          }
+          
+          document.body.removeChild(textArea);
+        }
+      }
+
+
+    }
+
+    // Initialize the checker when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      new InstagramChecker();
+    });
+  </script>
+</body>
+</html>
